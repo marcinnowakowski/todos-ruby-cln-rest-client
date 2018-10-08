@@ -5,7 +5,7 @@ require 'todos/client/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "todos-ruby-cln-rest-client"
-  spec.version       = Todos::Ruby::Cln::Rest::Client::VERSION
+  spec.version       = Todos::Client::VERSION
   spec.authors       = ["TODO: Write your name"]
   spec.email         = ["TODO: Write your email address"]
 

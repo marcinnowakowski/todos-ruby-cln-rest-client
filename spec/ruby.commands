@@ -1,0 +1,5 @@
+# create project
+bundle init todos-ruby-cln-rest-client
+
+# execute tests
+bundle exec rspec

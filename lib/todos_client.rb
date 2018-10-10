@@ -1,4 +1,4 @@
-require "todos/client/version"
+require "todos_client/version"
 
 module TodosClient
     class Client

@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require "todos_client"
+
+client = TodosClient::Client.new
+client.run

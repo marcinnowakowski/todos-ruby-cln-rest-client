@@ -1,0 +1,6 @@
+# install gem
+gem uninstall -q todos-client
+rake install
+
+# run gem
+todos_client

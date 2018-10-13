@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 require_relative "../lib/todos_client.rb"
 
-client = TodosClient::Client.new
-client.run
+client = TodosClient::CommandLineClient.new
+client.run(ARGV[0], ARGV[1], ARGV[2])

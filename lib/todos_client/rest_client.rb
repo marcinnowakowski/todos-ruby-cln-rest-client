@@ -4,6 +4,8 @@ module TodosClient
 
     class RestClient
 
+        include HTTParty
+
         def initialize(base_url)
             @base_url = base_url
         end
@@ -11,15 +13,16 @@ module TodosClient
         def get(id)
 
             if id == '-'
-                puts "GET #{@base_url}/todos"
+                puts self.class.get("#{@base_url}/todos") 
             else
-                puts "GET #{@base_url}/todos/#{id}"
+                puts self.class.get("#{@base_url}/todos/#{id}")
             end
         end
 
         def post(body)
-            puts "POST #{@base_url}/todos"
-            puts "body: #{body}"
+            json_body = body
+            puts self.class.post("#{@base_url}/todos",
+                :query => json_body) 
         end
 
     end

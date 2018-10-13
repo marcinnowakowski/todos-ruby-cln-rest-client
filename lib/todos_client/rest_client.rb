@@ -20,10 +20,10 @@ module TodosClient
             end
         end
 
-        def post(body)
-            json_body = body
+        def post(json_body)
+            body = JSON.parse(json_body)
             puts self.class.post("#{@base_url}/todos",
-                :query => json_body) 
+                :query => body) 
         end
 
     end

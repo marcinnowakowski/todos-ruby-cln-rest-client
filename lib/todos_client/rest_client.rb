@@ -1,4 +1,5 @@
 # todos_client/rest_client
+require 'httparty'
 
 module TodosClient
 

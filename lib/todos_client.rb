@@ -7,7 +7,7 @@ module TodosClient
     class CommandLineClient
 
         def initialize
-            @rest_client = RestClient.new(BASE_URL)
+            @rest_client = TodosClient::RestClient.new(TodosClient::BASE_URL)
         end
 
         def run(method, id, body_file_name)
@@ -20,7 +20,7 @@ module TodosClient
             when "get", "GET"
                 @rest_client.get(id)
             when "post", "POST"
-                @rest_client.get(body_file_name)
+                @rest_client.post(body_file_name)
             else
                 self.unrecognized_method
             end
@@ -28,9 +28,9 @@ module TodosClient
         end
 
         def help
-            puts "This is todos REST API client #{VERSION}!"
+            puts "This is todos REST API client #{TodosClient::VERSION}!"
             puts 'usage:'
-            puts '$ todo_client <method> <id > <body_file_name>'
+            puts '$ todo_client <method> <id> <body_file_name>'
             puts 
         end
 

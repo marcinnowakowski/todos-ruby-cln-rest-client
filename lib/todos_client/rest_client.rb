@@ -2,7 +2,7 @@ require "todos_client/rest_client"
 
 module TodosClient
 
-    class TodosRestClient
+    class RestClient
 
         def initialize(base_url)
             @base_url = base_url
@@ -18,10 +18,8 @@ module TodosClient
         end
 
         def post(body)
-            if id == '-'
-                puts "POST #{@base_url}/todos"
-                puts "body: #{body}"
-            end
+            puts "POST #{@base_url}/todos"
+            puts "body: #{body}"
         end
 
     end

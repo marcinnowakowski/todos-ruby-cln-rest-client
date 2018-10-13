@@ -1,6 +1,7 @@
 require "todos_client/version"
 require "todos_client/config"
 require "todos_client/rest_client"
+require "todos_client/file_helper"
 
 module TodosClient
 
@@ -8,6 +9,7 @@ module TodosClient
 
         def initialize
             @rest_client = TodosClient::RestClient.new(TodosClient::BASE_URL)
+            @file_helper = TodosClient::FileHelper.new
         end
 
         def run(method, id, body_file_name)
@@ -20,7 +22,12 @@ module TodosClient
             when "get", "GET"
                 @rest_client.get(id)
             when "post", "POST"
-                @rest_client.post(body_file_name)
+                body = @file_helper.read(body_file_name)
+                if body.nil?
+                    self.not_able_to_read_file(body_file_name)
+                    return
+                end
+                @rest_client.post(body)
             else
                 self.unrecognized_method
             end
@@ -38,6 +45,11 @@ module TodosClient
             puts 'Unrecognized REST method!'
             puts 'methods:'
             puts 'GET, POST'
+            puts
+        end
+
+        def not_able_to_read_file(file_name)
+            puts "Not able to read filename #{file_name}!"
             puts
         end
 

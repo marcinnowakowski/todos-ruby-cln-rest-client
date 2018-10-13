@@ -1,4 +1,4 @@
-require "todos_client/rest_client"
+# todos_client/rest_client
 
 module TodosClient
 
